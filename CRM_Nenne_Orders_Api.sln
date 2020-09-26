@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM_Nenne_Orders_Api", "CRM_Nenne_Orders_Api\CRM_Nenne_Orders_Api.csproj", "{35DE1B8F-3FBA-402D-B964-E5066241D164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35DE1B8F-3FBA-402D-B964-E5066241D164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DE1B8F-3FBA-402D-B964-E5066241D164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DE1B8F-3FBA-402D-B964-E5066241D164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DE1B8F-3FBA-402D-B964-E5066241D164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF878830-AFA7-4309-807A-EA26369D6D2C}
+	EndGlobalSection
+EndGlobal
