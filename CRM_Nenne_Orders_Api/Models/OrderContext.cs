@@ -15,6 +15,6 @@ namespace CRM_Nenne_Orders_Api.Models
 
         }
 
-        public DbSet<Order> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace CRM_Nenne_Orders_Api.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly OrderContext _context;
+        private readonly ApiClient client = new ApiClient();
 
         public OrdersController(OrderContext context)
         {
@@ -24,14 +25,14 @@ namespace CRM_Nenne_Orders_Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetCustomers()
         {
-            return await _context.Customers.ToListAsync();
+            return await _context.Orders.ToListAsync();
         }
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            var order = await _context.Customers.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
 
             if (order == null)
             {
@@ -80,13 +81,13 @@ namespace CRM_Nenne_Orders_Api.Controllers
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             //Valiadate Customer
-            var 
-            if(order.JobId == 0)
+            bool customerExist = await client.VerifyCustomer(order.CustomerId);
+            if(!customerExist)
             {
-
+                return BadRequest();
             }
-
-            _context.Customers.Add(order);
+            order.CreationDate = DateTime.Today;
+            _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
@@ -96,13 +97,13 @@ namespace CRM_Nenne_Orders_Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Order>> DeleteOrder(int id)
         {
-            var order = await _context.Customers.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
             }
 
-            _context.Customers.Remove(order);
+            _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
 
             return order;
@@ -110,7 +111,7 @@ namespace CRM_Nenne_Orders_Api.Controllers
 
         private bool OrderExists(int id)
         {
-            return _context.Customers.Any(e => e.Id == id);
+            return _context.Orders.Any(e => e.Id == id);
         }
     }
 }

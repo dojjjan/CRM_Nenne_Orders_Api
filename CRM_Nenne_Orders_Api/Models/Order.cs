@@ -16,7 +16,7 @@ namespace CRM_Nenne_Orders_Api.Models
         public string Address { get; set; }
         public string Notes { get; set; }
         public string State { get; set; }
-        public DateTime CreationTime { get; set; }
+        public DateTime CreationDate { get; set; }
         public int JobId { get; set; }
         public int CustomerId { get; set; }
     }
